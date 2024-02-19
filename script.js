@@ -14,11 +14,10 @@ for (const btn of allBtn) {
 
     btn.addEventListener('click', function (elements) {
 
-
-
-
+        // event.setAttribute('disabled',true )
+        
         if (setCount == 4) {
-            alert('hello')
+            alert("You can't buy morethen 4 ticket")
             return
         }
         else {
@@ -43,9 +42,8 @@ for (const btn of allBtn) {
             div.appendChild(p3)
             div.appendChild(p2)
 
-            div.classList.add('flex')
-            div.classList.add('justify-between')
-            div.classList.add('items-center')
+            div.classList.add("flex","justify-between","items-center")
+            
 
             seatContainer.appendChild(div);
             totalPrice('per-seat');
@@ -75,10 +73,6 @@ for (const btn of allBtn) {
         // elements.target.setAttribute('disabled', "")
 
     })
-
-
-
-
 
 
 }

@@ -4,51 +4,83 @@ const allBtn = document.querySelectorAll('kbd');
 
 let setCount = 0;
 let leftSeat = 8;
-let countBtn = 0;
+let count = 0;
+
+
 
 for (const btn of allBtn) {
+
+
+
     btn.addEventListener('click', function (elements) {
-        btn.classList.add('bg-green-500')
-
-
-        const seatName = btn.innerText;
-        const perSeat = document.getElementById('per-seat').innerText;
-        const classes = 'Economy';
-
-        // get seat container.    
-        const seatContainer = document.getElementById('seat-container');
-
-        const p1 = document.createElement('p');
-        const p2 = document.createElement('p');
-        const p3 = document.createElement('p');
-        const div = document.createElement('div');
-
-        p1.innerText = seatName;
-        p2.innerText = perSeat;
-        p3.innerText = classes;
-
-        div.appendChild(p1)
-        div.appendChild(p3)
-        div.appendChild(p2)
-
-        seatContainer.appendChild(div);
-        totalPrice('per-seat');
 
 
 
-        // seat add.
-        setCount = setCount + 1
-        document.getElementById('add-seat').innerText = setCount;
 
-        // left seat.
+        if (setCount == 4) {
+            alert('hello')
+            return
+        }
+        else {
 
-        leftSeat = leftSeat - 1
-        document.getElementById('left-seat').innerText = leftSeat;
+            const seatName = btn.innerText;
+            const perSeat = document.getElementById('per-seat').innerText;
+            const classes = 'Economy';
+
+            // get seat container.    
+            const seatContainer = document.getElementById('seat-container');
+
+            const p1 = document.createElement('p');
+            const p2 = document.createElement('p');
+            const p3 = document.createElement('p');
+            const div = document.createElement('div');
+
+            p1.innerText = seatName;
+            p2.innerText = perSeat;
+            p3.innerText = classes;
+
+            div.appendChild(p1)
+            div.appendChild(p3)
+            div.appendChild(p2)
+
+            div.classList.add('flex')
+            div.classList.add('justify-between')
+            div.classList.add('items-center')
+
+            seatContainer.appendChild(div);
+            totalPrice('per-seat');
+
+
+            // seat add.
+            setCount = setCount + 1
+            document.getElementById('add-seat').innerText = setCount;
+
+
+            // left seat.
+            leftSeat = leftSeat - 1
+            document.getElementById('left-seat').innerText = leftSeat;
+
+            btn.classList.add('bg-green-500')
+        }
+        
 
 
 
+
+
+
+
+
+        //  elements.target.disabled=true
+        // elements.target.setAttribute('disabled', "")
 
     })
+
+
+
+
+
+
 }
 
 function totalPrice(id,) {
